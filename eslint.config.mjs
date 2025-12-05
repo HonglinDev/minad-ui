@@ -1,3 +1,12 @@
+/*
+ * @Author: 李红林 1770679549@qq.com
+ * @Date: 2025-12-05 16:12:03
+ * @LastEditors: 李红林 1770679549@qq.com
+ * @LastEditTime: 2025-12-05 16:42:35
+ * @FilePath: \minad-ui\eslint.config.mjs
+ * @Description:
+ *
+ */
 import uniHelper from '@uni-helper/eslint-config'
 
 export default uniHelper({
@@ -7,6 +16,7 @@ export default uniHelper({
   ignores: [
     // 忽略uni_modules目录
     '**/uni_modules/',
+    '**/docs/',
     // 忽略原生插件目录
     '**/nativeplugins/',
     'dist',

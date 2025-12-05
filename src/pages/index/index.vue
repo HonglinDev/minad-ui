@@ -1,3 +1,12 @@
+<!--
+ * @Author: 李红林 1770679549@qq.com
+ * @Date: 2025-12-05 16:12:03
+ * @LastEditors: 李红林 1770679549@qq.com
+ * @LastEditTime: 2025-12-05 16:53:47
+ * @FilePath: \minad-ui\src\pages\index\index.vue
+ * @Description:
+ *
+-->
 <script lang="ts" setup>
 defineOptions({
   name: 'Home',
@@ -7,8 +16,8 @@ definePage({
   type: 'home',
   style: {
     // 'custom' 表示开启自定义导航栏，默认 'default'
-    navigationStyle: 'custom',
-    navigationBarTitleText: '首页',
+    navigationStyle: 'default',
+    navigationBarTitleText: 'minad-ui',
   },
 })
 
