@@ -2,27 +2,23 @@
  * @Author: 李红林 1770679549@qq.com
  * @Date: 2025-11-25 18:00:00
  * @LastEditors: 李红林 1770679549@qq.com
- * @LastEditTime: 2025-11-25 17:37:21
- * @FilePath: \minad-ui\src\components\md-icon\md-icon.vue
+ * @LastEditTime: 2025-12-07 17:32:43
+ * @FilePath: \minad-ui\src\uni_modules\minad-ui\components\md-icon\md-icon.vue
  * @Description: 图标组件
  *
 -->
 <template>
-  <view
-    class="md-icon"
-    :class="{
-      'md-icon--text': isTextIcon,
-      'md-icon--loading': loading,
-      'md-icon--spin': spin,
-      [`md-icon--${size}`]: size,
-      [iconClass]: !isTextIcon && !loading
-    }"
-    :style="{
-      color,
-      fontSize,
-      transform: rotate ? `rotate(${rotate}deg)` : undefined
-    }"
-  >
+  <view class="md-icon" :class="{
+    'md-icon--text': isTextIcon,
+    'md-icon--loading': loading,
+    'md-icon--spin': spin,
+    [`md-icon--${size}`]: size,
+    [iconClass]: !isTextIcon && !loading
+  }" :style="{
+    color,
+    fontSize,
+    transform: rotate ? `rotate(${rotate}deg)` : undefined
+  }">
     <template v-if="isTextIcon">
       {{ name }}
     </template>
@@ -52,7 +48,16 @@ const isTextIcon = computed(() => {
 // 计算图标类名（自动添加md-icon-前缀）
 const iconClass = computed(() => {
   if (!props.name) return ''
-  return props.name.startsWith('md-icon-') ? props.name : `md-icon-${props.name}`
+  
+  // 如果是 el-icon- 开头，替换为 md-icon-，因为底层 CSS 使用 md-icon- 前缀
+  if (props.name.startsWith('el-icon-')) {
+    return props.name.replace('el-icon-', 'md-icon-')
+  }
+
+  if (props.name.startsWith('md-icon-')) {
+    return props.name
+  }
+  return `md-icon-${props.name}`
 })
 
 // 自动计算字体大小
@@ -66,7 +71,6 @@ const fontSize = computed(() => {
 
 <style lang="scss" scoped>
 @import '../../styles/index';
-@import '../../styles/_element-icons';
 
 // 图标基础样式
 .md-icon {
@@ -94,9 +98,11 @@ const fontSize = computed(() => {
   &.md-icon--small {
     font-size: $md-size-small;
   }
+
   &.md-icon--medium {
     font-size: $md-size-medium;
   }
+
   &.md-icon--large {
     font-size: $md-size-large;
   }
@@ -126,6 +132,7 @@ const fontSize = computed(() => {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

@@ -37,19 +37,17 @@
               <md-button
                 v-if="showCancelButton"
                 :type="cancelButtonType"
-                :text="cancelButtonText"
                 @click="handleCancel"
                 class="md-dialog__button"
-              ></md-button>
+              >{{ cancelButtonText }}</md-button>
               
               <!-- 确认按钮 -->
               <md-button
                 v-if="showConfirmButton"
                 :type="confirmButtonType"
-                :text="confirmButtonText"
                 @click="handleConfirm"
                 class="md-dialog__button"
-              ></md-button>
+              >{{ confirmButtonText }}</md-button>
             </view>
           </slot>
         </view>

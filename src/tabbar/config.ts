@@ -1,3 +1,13 @@
+/*
+ * @Author: 李红林 1770679549@qq.com
+ * @Date: 2025-12-07 13:23:59
+ * @LastEditors: 李红林 1770679549@qq.com
+ * @LastEditTime: 2025-12-07 17:14:14
+ * @FilePath: \minad-ui\src\tabbar\config.ts
+ * @Description:
+ *
+ * Copyright (c) 2025 by ${git_name_email}, All Rights Reserved.
+ */
 import type { TabBar } from '@uni-helper/vite-plugin-uni-pages'
 import type { CustomTabBarItem, NativeTabBarItem } from './types'
 
@@ -43,49 +53,17 @@ export const nativeTabbarList: NativeTabBarItem[] = [
 // 如果需要配置鼓包，需要在 'tabbar/store.ts' 里面设置，最后在 `tabbar/index.vue` 里面更改鼓包的图片
 export const customTabbarList: CustomTabBarItem[] = [
   {
-    text: '首页',
+    text: 'Demo',
     pagePath: 'pages/index/index',
-    // 注意 unocss 图标需要如下处理：（二选一）
-    // 1）在fg-tabbar.vue页面上引入一下并注释掉（见tabbar/index.vue代码第2行）
-    // 2）配置到 unocss.config.ts 的 safelist 中
     iconType: 'unocss',
-    icon: 'i-carbon-home',
-    // badge: 'dot',
+    icon: 'i-carbon-grid',
   },
   {
-    pagePath: 'pages/me/me',
-    text: '我的',
-    // 1）在fg-tabbar.vue页面上引入一下并注释掉（见tabbar/index.vue代码第2行）
-    // 2）配置到 unocss.config.ts 的 safelist 中
+    pagePath: 'pages/about/index',
+    text: '关于我们',
     iconType: 'unocss',
-    icon: 'i-carbon-user',
-    // badge: 10,
+    icon: 'i-carbon-layers',
   },
-  // 其他类型演示
-  // 1、uiLib
-  // {
-  //   pagePath: 'pages/index/index',
-  //   text: '首页',
-  //   iconType: 'uiLib',
-  //   icon: 'home',
-  // },
-  // 2、iconfont
-  // {
-  //   pagePath: 'pages/index/index',
-  //   text: '首页',
-  //   // 注意 iconfont 图标需要额外加上 'iconfont'，如下
-  //   iconType: 'iconfont',
-  //   icon: 'iconfont icon-my',
-  // },
-  // 3、image
-  // {
-  //   pagePath: 'pages/index/index',
-  //   text: '首页',
-  //   // 使用 ‘image’时，需要配置 icon + iconActive 2张图片
-  //   iconType: 'image',
-  //   icon: '/static/tabbar/home.png',
-  //   iconActive: '/static/tabbar/homeHL.png',
-  // },
 ]
 
 /**

@@ -2,8 +2,8 @@
  * @Author: 李红林 1770679549@qq.com
  * @Date: 2025-11-24 18:04:22
  * @LastEditors: 李红林 1770679549@qq.com
- * @LastEditTime: 2025-11-27 14:51:32
- * @FilePath: \minad-ui\src\components\md-button\md-button.vue
+ * @LastEditTime: 2025-12-07 20:11:05
+ * @FilePath: \minad-ui\src\uni_modules\minad-ui\components\md-button\md-button.vue
  * @Description:
  *
 -->
@@ -37,6 +37,7 @@ const handleClick = (event: MouseEvent) => {
 </script>
 
 <style lang="scss" scoped>
+@use '../../styles/index' as *;
 
 // 按钮基础样式
 .md-button {

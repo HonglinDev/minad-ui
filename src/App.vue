@@ -22,5 +22,5 @@ onHide(() => {
 </script>
 
 <style lang="scss">
-
+@import '@/uni_modules/minad-ui/styles/_element-icons.scss';
 </style>

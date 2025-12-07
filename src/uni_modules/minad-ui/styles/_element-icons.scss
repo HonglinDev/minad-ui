@@ -1,13 +1,14 @@
 /* Element UI Icons */
 @font-face {
-  font-family: 'element-icons';
+  font-family: 'md-icons';
   src: url('./fonts/element-icons.woff') format('woff'), /* chrome, firefox */
        url('./fonts/element-icons.ttf') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
   font-weight: normal;
   font-style: normal;
 }
 
-[class^="md-icon-"], [class*=" md-icon-"] {
+[class^="md-icon-"], [class*=" md-icon-"],
+[class^="el-icon-"], [class*=" el-icon-"] {
   font-family: 'element-icons' !important;
   speak: none;
   font-style: normal;

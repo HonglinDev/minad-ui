@@ -2,9 +2,9 @@
  * @Author: 李红林 1770679549@qq.com
  * @Date: 2025-12-05 16:12:03
  * @LastEditors: 李红林 1770679549@qq.com
- * @LastEditTime: 2025-12-05 16:53:47
+ * @LastEditTime: 2025-12-07 17:08:49
  * @FilePath: \minad-ui\src\pages\index\index.vue
- * @Description:
+ * @Description: minad-ui 组件库分类列表
  *
 -->
 <script lang="ts" setup>
@@ -12,51 +12,70 @@ defineOptions({
   name: 'Home',
 })
 definePage({
-  // 使用 type: "home" 属性设置首页，其他页面不需要设置，默认为page
   type: 'home',
   style: {
-    // 'custom' 表示开启自定义导航栏，默认 'default'
     navigationStyle: 'default',
     navigationBarTitleText: 'minad-ui',
+    backgroundColor: '#F8F8F8',
   },
 })
 
-const description = ref(
-  'unibest 是一个集成了多种工具和技术的 uniapp 开发模板，由 uniapp + Vue3 + Ts + Vite5 + UnoCss + VSCode 构建，模板具有代码提示、自动格式化、统一配置、代码片段等功能，并内置了许多常用的基本组件和基本功能，让你编写 uniapp 拥有 best 体验。',
-)
-console.log('index/index 首页打印了')
+const categories = [
+  {
+    title: '基础',
+    icon: 'document', // 映射到 md-icon name
+    path: '/pages/demo/basic',
+  },
+  {
+    title: '导航',
+    icon: 'more', // ellipsis
+    path: '/pages/demo/nav',
+  },
+  {
+    title: '数据输入',
+    icon: 'menu', // hamburger
+    path: '/pages/demo/form',
+  },
+  {
+    title: '反馈',
+    icon: 'success', // checkmark
+    path: '/pages/demo/feedback',
+  },
+  {
+    title: '数据展示',
+    icon: 'view', // eye/preview
+    path: '/pages/demo/display',
+  },
+  {
+    title: '演示案例',
+    icon: 'success',
+    path: '/pages/demo/cases/index',
+  },
+]
 
-onLoad(() => {
-  console.log('测试 uni API 自动引入: onLoad')
-})
+function handleNavigate(path: string) {
+  uni.navigateTo({
+    url: path,
+  })
+}
 </script>
 
 <template>
-  <view class="bg-white px-4 pt-safe">
-    <view class="mt-10">
-      <image src="/static/logo.svg" alt="" class="mx-auto block h-28 w-28" />
-    </view>
-    <view class="mt-4 text-center text-4xl text-[#d14328]">
-      unibest
-    </view>
-    <view class="mb-8 mt-2 text-center text-2xl">
-      最好用的 uniapp 开发模板
-    </view>
-
-    <view class="m-auto mb-2 max-w-100 text-justify indent text-4">
-      {{ description }}
-    </view>
-    <view class="mt-4 text-center">
-      作者：
-      <text class="text-green-500">
-        菲鸽
-      </text>
-    </view>
-    <view class="mt-4 text-center">
-      官网地址：
-      <text class="text-green-500">
-        https://unibest.tech
-      </text>
+  <view class="min-h-screen bg-gray-100 px-4 py-4 pb-safe">
+    <view class="flex flex-col gap-4">
+      <view
+        v-for="(item, index) in categories"
+        :key="index"
+        class="flex items-center justify-between rounded-lg bg-white p-4 shadow-sm transition-colors active:bg-gray-50"
+        @click="handleNavigate(item.path)"
+      >
+        <text class="text-base text-gray-800 font-medium">{{ item.title }}</text>
+        <md-icon :name="item.icon" class="text-xl text-gray-400" />
+      </view>
     </view>
   </view>
 </template>
+
+<style scoped>
+/* 也可以使用 UnoCSS，这里为了确保样式正确性简单写一点 */
+</style>

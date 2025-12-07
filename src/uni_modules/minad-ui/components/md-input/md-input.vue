@@ -2,8 +2,8 @@
  * @Author: 李红林 1770679549@qq.com
  * @Date: 2025-11-25 10:00:00
  * @LastEditors: 李红林 1770679549@qq.com
- * @LastEditTime: 2025-11-27 10:30:11
- * @FilePath: \minad-ui\src\components\md-input\md-input.vue
+ * @LastEditTime: 2025-12-07 20:11:08
+ * @FilePath: \minad-ui\src\uni_modules\minad-ui\components\md-input\md-input.vue
  * @Description: Input 组件实现
  *
 -->
@@ -136,6 +136,7 @@ defineExpose({
 </script>
 
 <style lang="scss" scoped>
+@use '../../styles/index' as *;
 
 // 输入框基础样式
 .md-input-wrapper {
