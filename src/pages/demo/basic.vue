@@ -2,7 +2,7 @@
  * @Author: 李红林 1770679549@qq.com
  * @Date: 2025-12-07 17:07:48
  * @LastEditors: 李红林 1770679549@qq.com
- * @LastEditTime: 2025-12-07 17:34:44
+ * @LastEditTime: 2025-12-08 14:26:42
  * @FilePath: \minad-ui\src\pages\demo\basic.vue
  * @Description:
  *
@@ -59,20 +59,6 @@
         </view>
       </view>
 
-      <view class="mb-2 text-sm text-gray-700 font-bold">
-        Element 图标
-      </view>
-      <view class="grid grid-cols-4 gap-4">
-        <view
-          v-for="name in elIcons"
-          :key="name"
-          class="flex flex-col items-center justify-center rounded bg-gray-50 p-2 active:bg-gray-200"
-          @click="copyIconName(name)"
-        >
-          <md-icon :name="name" size="24" class="mb-2 text-gray-600" />
-          <text class="w-full truncate break-all text-center text-xs text-gray-400">{{ name.replace('el-icon-', '') }}</text>
-        </view>
-      </view>
     </md-card>
 
     <md-card title="Cell 单元格" class="mb-4" :padding="0">

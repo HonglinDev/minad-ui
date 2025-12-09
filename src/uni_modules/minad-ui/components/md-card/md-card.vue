@@ -2,8 +2,8 @@
  * @Author: 李红林 1770679549@qq.com
  * @Date: 2025-11-27 15:00:00
  * @LastEditors: 李红林 1770679549@qq.com
- * @LastEditTime: 2025-11-27 15:00:00
- * @FilePath: \minad-ui\src\components\md-card\md-card.vue
+ * @LastEditTime: 2025-12-09 15:37:43
+ * @FilePath: \minad-ui\src\uni_modules\minad-ui\components\md-card\md-card.vue
  * @Description: Card 卡片组件
  *
 -->
@@ -11,7 +11,6 @@
   <view 
     :class="cardClasses"
     :style="cardStyles"
-    @click="handleClick"
   >
     <!-- 卡片头部 -->
     <view 
@@ -40,7 +39,7 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import type { CardProps, CardEmits } from './type'
+import type { CardProps } from './type'
 
 const props = withDefaults(defineProps<CardProps>(), {
   type: 'default',
@@ -49,8 +48,6 @@ const props = withDefaults(defineProps<CardProps>(), {
   customClass: '',
   customStyle: () => ({})
 })
-
-const emit = defineEmits<CardEmits>()
 
 // 计算卡片类名
 const cardClasses = computed(() => {
@@ -82,10 +79,6 @@ const cardStyles = computed(() => {
   return styles
 })
 
-// 处理卡片点击事件
-const handleClick = (event: MouseEvent) => {
-  emit('click', event)
-}
 </script>
 
 <style lang="scss" scoped>

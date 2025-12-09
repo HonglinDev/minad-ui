@@ -38,6 +38,19 @@ export interface FormItemProps {
   label?: string
   prop: string
   required?: boolean
+  rules?: Array<{
+    required?: boolean
+    message?: string
+    trigger?: 'blur' | 'change'
+    min?: number
+    max?: number
+    type?: 'date' | 'number' | 'string'
+    date?: {
+      before?: string | Date
+      after?: string | Date
+      format?: string
+    }
+  }>
   trigger?: 'blur' | 'change' | Array<'blur' | 'change'>
 }
 

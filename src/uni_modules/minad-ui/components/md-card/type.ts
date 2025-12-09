@@ -36,10 +36,3 @@ export interface CardProps {
    */
   customStyle?: Record<string, any>
 }
-
-export interface CardEmits {
-  /**
-   * 卡片点击事件
-   */
-  (e: 'click', event: MouseEvent): void
-}

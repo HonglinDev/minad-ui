@@ -2,7 +2,7 @@
  * @Author: 李红林 1770679549@qq.com
  * @Date: 2025-12-05 16:12:03
  * @LastEditors: 李红林 1770679549@qq.com
- * @LastEditTime: 2025-12-07 17:08:49
+ * @LastEditTime: 2025-12-08 14:29:28
  * @FilePath: \minad-ui\src\pages\index\index.vue
  * @Description: minad-ui 组件库分类列表
  *
@@ -50,6 +50,11 @@ const categories = [
     title: '演示案例',
     icon: 'success',
     path: '/pages/demo/cases/index',
+  },
+    {
+    title: '图标案例',
+    icon: 'success',
+    path: '/pages/demo/icons-font',
   },
 ]
 

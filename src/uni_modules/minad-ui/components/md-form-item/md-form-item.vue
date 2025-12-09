@@ -1,6 +1,7 @@
 <template>
   <view class="md-form-item">
     <view v-if="label" class="md-form-item__label">
+      <text v-if="isRequired" class="md-form-item__required">*</text>
       {{ label }}
     </view>
     <view class="md-form-item__content">
@@ -13,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, onMounted, onUnmounted, ref, watch, provide } from 'vue'
+import { inject, onMounted, onUnmounted, ref, watch, provide, computed } from 'vue'
 import { useI18n } from '../../i18n/i18n'
 import { dayjs } from '@/uni_modules/minad-ui/utils'
 import type { FormItem, FormRules, FormState, MdForm, FormItemProps, FormItemEmits } from './type'
@@ -33,10 +34,22 @@ if (!mdForm) {
   console.error('MdFormItem must be used within MdForm')
 }
 
+const getEffectiveRules = (): Array<any> => {
+  const formRules = mdForm?.formState.rules[props.prop] || []
+  const itemRules = props.rules || []
+  return (itemRules.length ? itemRules : formRules) || []
+}
+
+const isRequired = computed(() => {
+  if (props.required) return true
+  const rules = getEffectiveRules()
+  return rules.some(r => r && r.required)
+})
+
 const validate = async (): Promise<boolean> => {
   if (!mdForm || !props.prop) return true
 
-  const rules = mdForm.formState.rules[props.prop]
+  const rules = getEffectiveRules()
   if (!rules || rules.length === 0) return true
 
   const value = mdForm.formState.model[props.prop]
@@ -174,16 +187,31 @@ const clearValidate = () => {
   errorMessage.value = ''
 }
 
+const ruleTriggers = computed(() => {
+  const set = new Set<string>()
+  const rules = getEffectiveRules()
+  rules.forEach(r => {
+    const t = r?.trigger
+    if (!t) return
+    if (Array.isArray(t)) t.forEach(x => set.add(x))
+    else set.add(t)
+  })
+  const pt = props.trigger
+  if (pt) {
+    if (Array.isArray(pt)) pt.forEach(x => set.add(x))
+    else set.add(pt)
+  }
+  return Array.from(set)
+})
+
 const handleBlur = () => {
-  const triggers = Array.isArray(props.trigger) ? props.trigger : [props.trigger]
-  if (triggers.includes('blur')) {
+  if (ruleTriggers.value.includes('blur')) {
     validate()
   }
 }
 
 const handleChange = () => {
-  const triggers = Array.isArray(props.trigger) ? props.trigger : [props.trigger]
-  if (triggers.includes('change')) {
+  if (ruleTriggers.value.includes('change')) {
     validate()
   }
 }
@@ -234,6 +262,11 @@ defineExpose({
   font-size: 14px;
   color: #303133;
   margin-right: 12px;
+}
+
+.md-form-item__required {
+  color: #f56c6c;
+  margin-right: 4px;
 }
 
 .md-form-item__content {
