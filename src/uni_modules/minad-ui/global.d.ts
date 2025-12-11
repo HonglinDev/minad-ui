@@ -76,6 +76,7 @@ declare module './components/md-checkbox/md-checkbox.vue' {
 declare module './components/md-checkbox-group/md-checkbox-group.vue' {
   const component: DefineComponent<CheckboxProps>
   export default component
+  export type { CheckboxEmits, CheckboxGroupProps, CheckboxGroupEmits }
 }
 
 declare module './components/md-col/md-col.vue' {
@@ -312,6 +313,7 @@ declare module 'vue' {
     MdButton: typeof import('./components/md-button/md-button.vue').default
     MdCard: typeof import('./components/md-card/md-card.vue').default
     MdCell: typeof import('./components/md-cell/md-cell.vue').default
+    MdCheckboxGroup: typeof import('./components/md-checkbox-group/md-checkbox-group.vue').default
     MdCheckbox: typeof import('./components/md-checkbox/md-checkbox.vue').default
     MdCol: typeof import('./components/md-col/md-col.vue').default
     MdCollapse: typeof import('./components/md-collapse/md-collapse.vue').default
@@ -332,6 +334,7 @@ declare module 'vue' {
     MdPicker: typeof import('./components/md-picker/md-picker.vue').default
     MdPickerDate: typeof import('./components/md-picker-date/md-picker-date.vue').default
     MdPopup: typeof import('./components/md-popup/md-popup.vue').default
+    MdRadioGroup: typeof import('./components/md-radio-group/md-radio-group.vue').default
     MdRadio: typeof import('./components/md-radio/md-radio.vue').default
     MdRate: typeof import('./components/md-rate/md-rate.vue').default
     MdRow: typeof import('./components/md-row/md-row.vue').default

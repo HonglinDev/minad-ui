@@ -2,8 +2,8 @@
  * @Author: 李红林 1770679549@qq.com
  * @Date: 2025-11-27 20:05:00
  * @LastEditors: 李红林 1770679549@qq.com
- * @LastEditTime: 2025-11-27 20:05:00
- * @FilePath: \minad-ui\src\components\md-checkbox\md-checkbox-group.vue
+ * @LastEditTime: 2025-12-10 10:04:43
+ * @FilePath: \minad-ui\src\uni_modules\minad-ui\components\md-checkbox-group\md-checkbox-group.vue
  * @Description: CheckboxGroup 复选框组组件
  *
 -->

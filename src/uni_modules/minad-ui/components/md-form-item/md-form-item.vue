@@ -273,11 +273,15 @@ defineExpose({
   flex: 1;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .md-form-item__error {
   font-size: 12px;
   color: #f56c6c;
-  margin-top: 4px;
+  margin-top: 2px;
+  position: absolute;
+  top: 100%;
+  left: 0;
 }
 </style>

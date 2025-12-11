@@ -2,7 +2,7 @@
  * @Author: 李红林 1770679549@qq.com
  * @Date: 2025-12-08 09:10:49
  * @LastEditors: 李红林 1770679549@qq.com
- * @LastEditTime: 2025-12-09 15:51:09
+ * @LastEditTime: 2025-12-10 09:27:53
  * @FilePath: \minad-ui\src\pages\demo\form.vue
  * @Description: 
  * 
@@ -10,7 +10,7 @@
 <template>
   <view class="min-h-screen bg-gray-100 p-4 pb-safe">
     <md-card title="Form 表单组件" class="mb-4">
-      <md-form v-model="ruleForm" label-width="auto">
+      <md-form v-model="ruleForm" ref="ruleFormRef" label-width="auto">
         <md-form-item label="输入框" prop="inputValue" :rules="[{ required: true, message: '请选择编码', trigger: 'blur' }]">
           <md-input v-model="ruleForm.inputValue" placeholder="请输入内容" />
         </md-form-item>
@@ -32,6 +32,7 @@
             <md-checkbox label="2">选项2</md-checkbox>
           </md-checkbox-group>
         </md-form-item>
+        <md-button @click="submit" type="primary">确 定</md-button>
       </md-form>
     </md-card>
   </view>
@@ -43,7 +44,7 @@ definePage({
     navigationBarTitleText: '数据输入',
   },
 })
-
+const ruleFormRef = ref()
 // 使用 reactive 定义表单数据即可，无需再定义额外 ref
 const ruleForm = reactive({
   inputValue: '',
@@ -51,4 +52,21 @@ const ruleForm = reactive({
   radioValue: '1',
   checkboxValue: ['1'],
 })
+const submit = async () => {
+
+  ruleFormRef.value?.validate(async (isValid: boolean, fields?: any) => {
+   console.log(isValid,"有你吗")
+    if (isValid) {
+      uni.showToast({
+        title: '提交成功',
+        icon: 'success',
+      })
+    } else {
+      uni.showToast({
+        title: '提交失败',
+        icon: 'error',
+      })
+    }
+  })
+}
 </script>

@@ -2,8 +2,8 @@
  * @Author: 李红林 1770679549@qq.com
  * @Date: 2025-11-27 20:05:00
  * @LastEditors: 李红林 1770679549@qq.com
- * @LastEditTime: 2025-11-27 20:05:00
- * @FilePath: \minad-ui\src\components\md-radio\md-radio-group.vue
+ * @LastEditTime: 2025-12-10 09:39:34
+ * @FilePath: \minad-ui\src\uni_modules\minad-ui\components\md-radio-group\md-radio-group.vue
  * @Description: RadioGroup 单选框组组件
  *
 -->

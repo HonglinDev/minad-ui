@@ -30,7 +30,7 @@ export interface MdForm {
   formState: FormState
   registerFormItem: (formItem: FormItem) => void
   unregisterFormItem: (formItem: FormItem) => void
-  validate: (prop?: string) => Promise<boolean>
+  validate: (propOrCb?: string | ((isValid: boolean, fields?: any) => void)) => Promise<boolean>
   clearValidate: (prop?: string) => void
 }
 

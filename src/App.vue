@@ -1,3 +1,12 @@
+<!--
+ * @Author: 李红林 1770679549@qq.com
+ * @Date: 2025-12-08 09:10:49
+ * @LastEditors: 李红林 1770679549@qq.com
+ * @LastEditTime: 2025-12-10 09:20:38
+ * @FilePath: \minad-ui\src\App.vue
+ * @Description: 
+ * 
+-->
 <script setup lang="ts">
 import { onHide, onLaunch, onShow } from '@dcloudio/uni-app'
 import { navigateToInterceptor } from '@/router/interceptor'
@@ -20,7 +29,3 @@ onHide(() => {
   console.log('App Hide')
 })
 </script>
-
-<style lang="scss">
-@import '@/uni_modules/minad-ui/styles/fonts/iconfont.css';
-</style>

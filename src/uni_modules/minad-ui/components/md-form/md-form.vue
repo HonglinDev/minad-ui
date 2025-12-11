@@ -29,20 +29,27 @@ const unregisterFormItem = (formItem: FormItem) => {
   }
 }
 
-const validate = async (prop?: string): Promise<boolean> => {
-  if (prop) {
-    const formItem = formState.formItems.find(item => item.prop === prop)
+const validate = async (propOrCb?: string | ((isValid: boolean, fields?: any) => void)): Promise<boolean> => {
+  let isValid = true
+  if (typeof propOrCb === 'string') {
+    const formItem = formState.formItems.find(item => item.prop === propOrCb)
     if (formItem) {
-      return formItem.validate()
+      isValid = await formItem.validate()
     }
-    return true
+    else {
+      isValid = true
+    }
+  } else {
+    const results = await Promise.all(formState.formItems.map(item => item.validate()))
+    isValid = results.every(r => r)
   }
 
-  const validResults = await Promise.all(
-    formState.formItems.map(item => item.validate())
-  )
-
-  return validResults.every(result => result)
+  if (typeof propOrCb === 'function') {
+    try {
+      await Promise.resolve(propOrCb(isValid))
+    } catch {}
+  }
+  return isValid
 }
 
 const clearValidate = (prop?: string) => {

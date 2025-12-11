@@ -44,35 +44,6 @@ export interface CheckboxEmits {
   (e: 'change', checked: boolean, value: any): void;
 }
 
-export interface CheckboxGroupProps {
-  /**
-   * 选中的值，支持 v-model
-   */
-  modelValue?: any[];
-  /**
-   * 是否禁用所有复选框
-   */
-  disabled?: boolean;
-  /**
-   * 自定义类名
-   */
-  customClass?: string;
-  /**
-   * 自定义样式
-   */
-  customStyle?: Record<string, any>;
-}
-
-export interface CheckboxGroupEmits {
-  /**
-   * 选中值变化时触发
-   */
-  (e: 'update:modelValue', values: any[]): void;
-  /**
-   * 选中值变化时触发
-   */
-  (e: 'change', values: any[]): void;
-}
 
 export interface CheckboxGroupProvide {
   /**
