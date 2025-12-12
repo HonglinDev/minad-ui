@@ -2,7 +2,7 @@
  * @Author: 李红林 1770679549@qq.com
  * @Date: 2025-11-24 18:04:22
  * @LastEditors: 李红林 1770679549@qq.com
- * @LastEditTime: 2025-12-07 20:11:05
+ * @LastEditTime: 2025-12-12 17:55:39
  * @FilePath: \minad-ui\src\uni_modules\minad-ui\components\md-button\md-button.vue
  * @Description:
  *
@@ -18,7 +18,6 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, defineEmits } from 'vue'
 import { useI18n } from '../../i18n/i18n'
 import type { ButtonProps, ButtonEmits } from './type'
 

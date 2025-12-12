@@ -1,6 +1,6 @@
 <template>
   <view class="md-form-item">
-    <view v-if="label" class="md-form-item__label">
+    <view v-if="label" class="md-form-item__label" :style="{ width: props.labelWidth }">
       <text v-if="isRequired" class="md-form-item__required">*</text>
       {{ label }}
     </view>
@@ -16,8 +16,8 @@
 <script setup lang="ts">
 import { inject, onMounted, onUnmounted, ref, watch, provide, computed } from 'vue'
 import { useI18n } from '../../i18n/i18n'
-import { dayjs } from '@/uni_modules/minad-ui/utils'
-import type { FormItem, FormRules, FormState, MdForm, FormItemProps, FormItemEmits } from './type'
+import { dayjs } from '../../utils'
+import type { MdForm, FormItemProps, FormItemEmits } from './type'
 
 const props = defineProps<FormItemProps>()
 
@@ -100,7 +100,7 @@ const validate = async (): Promise<boolean> => {
     // Date validation
     if (rule.date && dayjs(value).isValid()) {
       const dateValue = dayjs(value)
-      
+
       // Date format validation
       if (rule.date.format) {
         if (!dayjs(value, rule.date.format, true).isValid()) {
@@ -109,7 +109,7 @@ const validate = async (): Promise<boolean> => {
           break
         }
       }
-      
+
       // Date before validation
       if (rule.date.before) {
         const beforeDate = dayjs(rule.date.before)
@@ -124,7 +124,7 @@ const validate = async (): Promise<boolean> => {
           break
         }
       }
-      
+
       // Date after validation
       if (rule.date.after) {
         const afterDate = dayjs(rule.date.after)
@@ -156,7 +156,7 @@ const validate = async (): Promise<boolean> => {
         break
       }
     }
-    
+
     // Number range validation
     if (typeof value === 'number' || !isNaN(Number(value))) {
       const numValue = Number(value)
@@ -196,11 +196,6 @@ const ruleTriggers = computed(() => {
     if (Array.isArray(t)) t.forEach(x => set.add(x))
     else set.add(t)
   })
-  const pt = props.trigger
-  if (pt) {
-    if (Array.isArray(pt)) pt.forEach(x => set.add(x))
-    else set.add(pt)
-  }
   return Array.from(set)
 })
 

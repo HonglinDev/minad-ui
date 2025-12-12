@@ -30,7 +30,7 @@
         <md-form-item label="年龄" prop="age" :trigger="['change']">
           <md-input v-model="form.age" type="number" placeholder="请输入年龄" />
         </md-form-item>
-        <md-form-item label="开关">
+        <md-form-item label="开关" prop="enabled">
           <md-switch v-model="form.enabled" />
         </md-form-item>
         <md-form-item label="性别">
@@ -104,7 +104,7 @@ const activeTab = ref('info')
 const dialogVisible = ref(false)
 
 const form = reactive({
-  name: '',
+  name: '力宏',
   age: '' as number | string,
   enabled: true,
   gender: '',

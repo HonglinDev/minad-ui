@@ -36,7 +36,8 @@ export interface MdForm {
 
 export interface FormItemProps {
   label?: string
-  prop: string
+  labelWidth?:string
+  prop?: string
   required?: boolean
   rules?: Array<{
     required?: boolean
@@ -51,7 +52,6 @@ export interface FormItemProps {
       format?: string
     }
   }>
-  trigger?: 'blur' | 'change' | Array<'blur' | 'change'>
 }
 
 export interface FormItemEmits {

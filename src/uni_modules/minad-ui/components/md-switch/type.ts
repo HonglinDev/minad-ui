@@ -41,10 +41,6 @@ export interface SwitchProps {
    */
   inactiveColor?: string
   /**
-   * 是否使用原生input
-   */
-  native?: boolean
-  /**
    * 自定义类名
    */
   customClass?: string
